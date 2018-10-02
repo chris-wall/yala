@@ -1,0 +1,90 @@
+{
+  "name": "yala",
+  "version": "0.1.1",
+  "description": "",
+  "homepage": "http://example.com",
+  "repository": "",
+  "bugs": "https://example.com/bugs",
+  "keywords": [
+    "LOB",
+    "Line of business",
+    "BPAAS",
+    "Business Process",
+    "Digitalization",
+    "Digital Transformation",
+    "crud"
+  ],
+  "authors": [
+    "Chris Wall <chris@aftermansoftware.com> (https://github.com/chris-wall)"
+  ],
+  "license": "MIT",
+  "private": false,
+  "main": "dist/cjs/yala.js",
+  "unpkg": "dist/umd/yala.js",
+  "module": "dist/es/yala.js",
+  "typings": "./index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts"
+  ],
+  "npmName": "yala",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ],
+  "jest": {
+    "testRegex": "(/test/.*\\.spec.js)$"
+  },
+  "scripts": {
+    "clean": "rimraf dist coverage",
+    "format": "prettier --write \"{src,test}/**/*.js\"",
+    "format:check": "prettier --list-different \"{src,test}/**/*.js\"",
+    "lint": "eslint src test",
+    "pretest": "npm run build:commonjs",
+    "test": "cross-env BABEL_ENV=commonjs jest",
+    "test:watch": "npm test -- --watch",
+    "test:cov": "npm test -- --coverage",
+    "build:commonjs": "cross-env NODE_ENV=cjs rollup -c -o dist/cjs/yala.js",
+    "build:es": "cross-env BABEL_ENV=es NODE_ENV=es rollup -c -o dist/es/yala.js",
+    "build:umd": "cross-env BABEL_ENV=es NODE_ENV=development rollup -c -o dist/umd/yala.js",
+    "build:umd:min": "cross-env BABEL_ENV=es NODE_ENV=production rollup -c -o dist/umd/yala.min.js",
+    "build:sass": "node-sass src/styles/index.scss dist/yala.css",
+    "build": "npm run build:commonjs && npm run build:es && npm run build:umd && npm run build:umd:min && npm run build:sass",
+    "prepare": "npm run clean && npm run format:check && npm run lint && npm test && npm run build",
+    "examples:lint": "eslint examples",
+    "examples:test": "cross-env CI=true babel-node examples/testAll.js"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.4.2",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "babelrc-rollup": "^3.0.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.5.0",
+    "eslint-plugin-import": "^2.14.0",
+    "glob": "^7.1.3",
+    "jest": "^23.5.0",
+    "node-sass": "^4.9.3",
+    "prettier": "^1.14.2",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-replace": "^2.0.0",
+    "rollup-plugin-terser": "^2.0.2"
+  },
+  "dependencies": {
+    "history": "^4.7.2",
+    "loose-envify": "^1.4.0"
+  }
+}
