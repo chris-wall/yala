@@ -2,7 +2,6 @@ import { capitalize, spaceAtCaps } from '../../src/util/strings';
 
 describe('String utilities', () => {
   describe('capitalize(word)', () => {
-
     it('should capitalize a word', () => {
       const w = capitalize('test');
       expect(w).toBe('Test');
@@ -24,7 +23,6 @@ describe('String utilities', () => {
   });
 
   describe('spaceAtCaps(str)', () => {
-
     it('should put a space before capital letters', () => {
       const s = spaceAtCaps('ThisIsFun');
       expect(s).toBe('This Is Fun');

@@ -1,4 +1,3 @@
-
 export default function freeze(obj) {
   const result = Object.assign({}, obj);
 

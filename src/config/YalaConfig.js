@@ -38,7 +38,7 @@ class YalaConfigBuilder extends Builder {
 /**
  * YalaConfig is the primary entry point for configuring your Yala instance.
  * @class
-*/
+ */
 export default class YalaConfig extends Config {
   static get Builder() {
     return YalaConfigBuilder;

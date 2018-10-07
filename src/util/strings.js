@@ -1,4 +1,3 @@
-
 export function capitalize(word) {
   if (typeof word !== 'string') {
     word = `${word}`;
@@ -12,6 +11,6 @@ export function capitalize(word) {
 }
 
 export function spaceAtCaps(str, preserveAcronymns = false) {
-  const regex = (preserveAcronymns === true ? /([A-Z]+)/g : /([A-Z])/g);
+  const regex = preserveAcronymns === true ? /([A-Z]+)/g : /([A-Z])/g;
   return str.replace(regex, ' $1').trim();
 }

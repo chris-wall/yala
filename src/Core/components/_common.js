@@ -4,7 +4,8 @@
  * @returns {string}
  */
 export function clean(str) {
-  return `${str}`.replace(/&/g, '&amp;')
+  return `${str}`
+    .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
@@ -36,10 +37,9 @@ export function txt(str) {
  * @returns {DocumentFragment}
  */
 export function el(tag, props = {}, children = []) {
-
   const e = document.createElement(tag);
   Object.keys(props).forEach(p => e.setAttribute(p, clean(props[p])));
-  children.forEach(c => e.appendChild((typeof c === 'string' ? txt(c) : c)));
+  children.forEach(c => e.appendChild(typeof c === 'string' ? txt(c) : c));
 
   const f = frag();
   f.appendChild(e);

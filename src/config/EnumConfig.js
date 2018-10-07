@@ -8,21 +8,24 @@ class EnumConfigBuilder extends Builder {
   }
 
   values(...vals) {
-    const values = vals.map(v => (typeof v !== 'object' ? { key: `${v}`, label: `${v}`, value: v } : v));
-    const isValid = values.every(
-      v => {
-        return (
-          typeof v === 'object' &&
-          typeof v.label === 'string' &&
-          v.label !== '' &&
-          typeof v.key === 'string' &&
-          v.key !== ''
-        );
-      }
+    const values = vals.map(
+      v =>
+        typeof v !== 'object' ? { key: `${v}`, label: `${v}`, value: v } : v
     );
+    const isValid = values.every(v => {
+      return (
+        typeof v === 'object' &&
+        typeof v.label === 'string' &&
+        v.label !== '' &&
+        typeof v.key === 'string' &&
+        v.key !== ''
+      );
+    });
 
     if (isValid !== true) {
-      throw new Error('[Yala::EnumConfigBuilder] invalid value object provided to values()');
+      throw new Error(
+        '[Yala::EnumConfigBuilder] invalid value object provided to values()'
+      );
     }
 
     this.configure('values', values);

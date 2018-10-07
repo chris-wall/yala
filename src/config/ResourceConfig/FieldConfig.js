@@ -8,7 +8,7 @@ const FieldType = Object.freeze({
   BOOL: 'bool',
   LINK: 'link',
   ENUM: 'enum',
-  DATE: 'date',
+  DATE: 'date'
 });
 
 class FieldConfigBuilder extends Builder {
@@ -24,7 +24,11 @@ class FieldConfigBuilder extends Builder {
     }
 
     if (Object.keys(FieldType).includes(type.toUpperCase()) !== true) {
-      throw new Error(`[Yala::FieldConfig] Attempted to assigned an unknown type "${type}" to the field "${this.key}".`);
+      throw new Error(
+        `[Yala::FieldConfig] Attempted to assigned an unknown type "${type}" to the field "${
+          this.key
+        }".`
+      );
     }
 
     this.configure('type', type.toLowerCase());
@@ -48,4 +52,4 @@ export default class FieldConfig extends Config {
   }
 }
 
-export { FieldType }
+export { FieldType };

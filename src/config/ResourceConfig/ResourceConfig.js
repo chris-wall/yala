@@ -35,4 +35,3 @@ export default class ResourceConfig extends Config {
     return ResourceConfigBuilder;
   }
 }
-

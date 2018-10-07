@@ -1,11 +1,6 @@
+class YLoggerGroup {}
 
-class YLoggerGroup {
-
-}
-
-class YLogger {
-
-}
+class YLogger {}
 
 const $logger = '';
 

@@ -11,7 +11,7 @@ export function el(tag, props, ...children) {
   const e = document.createElement(tag);
 
   Object.keys(props).forEach(p => e.setAttribute(p, clean(props[p])));
-  children.forEach(c => e.appendChild((typeof c === 'string' ? txt(c) : c)));
+  children.forEach(c => e.appendChild(typeof c === 'string' ? txt(c) : c));
 
   f.appendChild(e);
   return f;

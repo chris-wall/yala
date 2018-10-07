@@ -1,21 +1,20 @@
 import { routeFrom, goTo } from '../../src/state/Router';
 
 describe('Router', () => {
-
   it('passes params for home route', done => {
     const verify = p => {
       expect(p.resource).toBe(null);
       expect(p.key).toBe(null);
       expect(p.parent).toBe(null);
       done();
-    }
+    };
 
     routeFrom(verify);
     goTo('/');
   });
 
   it('passes params for list route', done => {
-    const verify = (p) => {
+    const verify = p => {
       expect(p.resource).toBe('person');
       expect(p.key).toBe(null);
       expect(p.parent).toBe(null);
@@ -32,7 +31,7 @@ describe('Router', () => {
       expect(p.key).toBe('123');
       expect(p.parent).toBe(null);
       done();
-    }
+    };
 
     routeFrom(verify);
     goTo('/person/123');
@@ -49,9 +48,9 @@ describe('Router', () => {
       expect(parent.key).toBe('123');
       expect(parent.parent).toBe(null);
       done();
-    }
+    };
 
-    routeFrom(verify)
+    routeFrom(verify);
     goTo('/person/123/address');
   });
 
@@ -66,11 +65,10 @@ describe('Router', () => {
       expect(parent.key).toBe('123');
       expect(parent.parent).toBe(null);
       done();
-    }
+    };
 
-    routeFrom(verify)
+    routeFrom(verify);
     goTo('/person/123/address/5');
-
   });
 
   it('passes more than one ancestor in parent tree', done => {
@@ -89,9 +87,9 @@ describe('Router', () => {
       expect(gparent.key).toBe('jdoe');
       expect(gparent.parent).toBe(null);
       done();
-    }
+    };
 
-    routeFrom(verify)
+    routeFrom(verify);
     goTo('/person/jdoe/account/123/transaction/100');
   });
 });

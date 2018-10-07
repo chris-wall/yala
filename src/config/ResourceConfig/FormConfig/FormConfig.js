@@ -13,7 +13,6 @@ class FormConfigBuilder extends Builder {
   sections() {
     this.check('sections');
   }
-
 }
 
 export default class FormConfig extends Config {
@@ -21,4 +20,3 @@ export default class FormConfig extends Config {
     return FormConfigBuilder;
   }
 }
-

@@ -1,7 +1,6 @@
 import EnumConfig from '../../src/config/EnumConfig';
 
 describe('EnumConfig', () => {
-
   // -- Key must be a valid string
   it('throws if invalid key', () => {
     expect(() => new EnumConfig.Builder(null)).toThrow();
@@ -11,7 +10,7 @@ describe('EnumConfig', () => {
   it('throws if invalid value object', () => {
     const builder = new EnumConfig.Builder('test');
     expect(() => builder.values({ value: '' })).toThrow();
-    expect(() => builder.values())
+    expect(() => builder.values());
   });
 
   it('converts primative values into value objects', () => {
@@ -36,7 +35,11 @@ describe('EnumConfig', () => {
   // -- Ensure the builder creates predictable output
   it('builds a valid enum configuration', () => {
     const builder = new EnumConfig.Builder('test');
-    builder.values('testone', { key: 'two', value: 'testtwo', label: 'Test Two' });
+    builder.values('testone', {
+      key: 'two',
+      value: 'testtwo',
+      label: 'Test Two'
+    });
 
     const e = builder.build();
 

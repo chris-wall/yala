@@ -2,7 +2,6 @@ import FieldConfig from '../../../src/config/ResourceConfig/FieldConfig';
 import ResourceConfig from '../../../src/config/ResourceConfig';
 
 describe('ResourceConfig', () => {
-
   /**
    * Test accessing the FieldConfig(s) for the Resource
    */

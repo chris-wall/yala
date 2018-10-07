@@ -3,7 +3,6 @@ import EnumConfig from '../../src/config/EnumConfig';
 import ResourceConfig from '../../src/config/ResourceConfig';
 
 describe('YalaConfig', () => {
-
   describe('YalaConfig.enum', () => {
     it('provides access to new enum configuration', () => {
       const yala = new YalaConfig.Builder('test');

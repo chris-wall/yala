@@ -1,4 +1,1 @@
-
-export default function renderWidget() {
-
-}
+export default function renderWidget() {}

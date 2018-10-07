@@ -13,5 +13,7 @@ class DashboardConfigBuilder extends Builder {
 }
 
 export default class DashboardConfig extends Config {
-  static get Builder() { return DashboardConfigBuilder; }
+  static get Builder() {
+    return DashboardConfigBuilder;
+  }
 }

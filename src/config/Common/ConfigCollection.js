@@ -1,8 +1,18 @@
 export default class ConfigCollection {
   constructor(ofType) {
     Object.defineProperties(this, {
-      '__ctor': { writable: false, configurable: false, enumerable: false, value: ofType },
-      '__values': { writable: false, configurable: false, enumerable: false, value: new Map() }
+      __ctor: {
+        writable: false,
+        configurable: false,
+        enumerable: false,
+        value: ofType
+      },
+      __values: {
+        writable: false,
+        configurable: false,
+        enumerable: false,
+        value: new Map()
+      }
     });
   }
 
@@ -16,7 +26,9 @@ export default class ConfigCollection {
 
   add(key) {
     if (this.__values.has(key) === true) {
-      throw new Error(`[YALA] attempting to register a new section as "${key}".  The key is already in use.`);
+      throw new Error(
+        `[YALA] attempting to register a new section as "${key}".  The key is already in use.`
+      );
     }
 
     this.__values.set(key, new this.__ctor(key));
@@ -28,6 +40,8 @@ export default class ConfigCollection {
   }
 
   buildAll() {
-    return new Map([...this.__values.entries()].map(([k, v]) => [k, v.build()]));
+    return new Map(
+      [...this.__values.entries()].map(([k, v]) => [k, v.build()])
+    );
   }
 }

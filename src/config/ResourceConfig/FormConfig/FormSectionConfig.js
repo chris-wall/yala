@@ -2,7 +2,6 @@ import Config from '../../Common/Config';
 import Builder from '../../Common/Builder';
 import { capitalize } from '../../../util/strings';
 
-
 class FormSectionConfigBuilder extends Builder {
   constructor(key) {
     super(key, FormSectionConfig);
@@ -32,4 +31,3 @@ export default class FormSectionConfig extends Config {
     return FormSectionConfigBuilder;
   }
 }
-

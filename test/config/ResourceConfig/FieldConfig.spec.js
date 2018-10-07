@@ -1,7 +1,6 @@
 import FieldConfig from '../../../src/config/ResourceConfig/FieldConfig';
 
 describe('FieldConfig', () => {
-
   // -- Key must be a valid string
   it('throws if invalid key', () => {
     expect(() => new FieldConfig.Builder(null)).toThrow();
@@ -24,7 +23,7 @@ describe('FieldConfig', () => {
     const builder = new FieldConfig.Builder('test');
     builder.ofType('number');
     expect(builder.check('type')).toBe('number');
-  })
+  });
 
   // -- Ensure the builder creates predictable output
   it('builds a valid field configuration', () => {
